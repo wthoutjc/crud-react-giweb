@@ -1,0 +1,458 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* font-family: 'Montserrat', sans-serif; */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+:root {
+  --color-azulPrimario: #123;
+  --color-azulSecundario: rgb(28, 58, 88);
+  --color-whitePrimario: rgba(221, 221, 221, 0.911);
+  --borderGradient: linear-gradient(to left, #0f2027, #203a43, #2c5364);
+}
+body {
+  position: relative;
+}
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: #123;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+header {
+  width: 100%;
+  height: 55px;
+  padding: 1em;
+  box-sizing: border-box;
+  background-color: var(--color-azulSecundario);
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+header::after {
+  content: "";
+  background-image: var(--borderGradient);
+  background-size: 300%;
+  background-position: left;
+  transition: background-position 0.3s;
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 55px;
+  animation: borderBottomEffect 3s infinite ease;
+  left: 0;
+}
+header .github {
+  display: flex;
+}
+header .title {
+  user-select: none;
+}
+header .github > a {
+  text-decoration: none;
+  color: rgb(155, 155, 155);
+  margin-left: 0.3em;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em 2em 1em 2em;
+  display: flex;
+}
+.search > input[type="text"] {
+  flex: 1 0 80%;
+  box-sizing: border-box;
+  padding: 0.8em;
+  outline: none;
+  border: none;
+  color: #000;
+  border-end-start-radius: 0.5em;
+}
+.search > button {
+  box-sizing: border-box;
+  padding: 0.6em;
+  flex: 1 0 5%;
+  border: none;
+  color: var(--color-azulSecundario);
+  background-color: var(--color-azulSecundario);
+  cursor: pointer;
+  border-end-end-radius: 0.5em;
+}
+.search > button:last-child {
+  flex: 1 1 5%;
+  margin-left: 0.2em;
+  border-radius: 0.5em;
+  background-color: #13a733;
+}
+.search > button:focus {
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  color: white;
+  transition: all 0.2s;
+}
+
+/*Diseño card*/
+.heros-container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: center;
+  overflow: auto;
+}
+.card {
+  position: relative;
+  flex: 0 1 220px;
+  height: 300px;
+  background-color: #203a43;
+  overflow: hidden;
+  border-radius: 0.4em;
+  margin-right: 1.7em;
+  margin-bottom: 1em;
+  cursor: pointer;
+  user-select: none;
+}
+.effect1 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 140px;
+  height: 130%;
+  background: linear-gradient(#00ccff, #d400d4);
+  animation: cardAnimate 4s linear infinite;
+}
+.effect2 {
+  border-radius: 0.3em;
+  display: none;
+  position: absolute;
+  top: 0;
+  inset: 4px;
+  background-color: var(--color-azulSecundario);
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1em;
+}
+.effect2 > p {
+  border-bottom: 1px solid white;
+  border-radius: 0.3em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  padding: 0.3em;
+}
+.info-button {
+  position: absolute;
+  z-index: 1000;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  font-size: 120%;
+  bottom: 10px;
+  right: 15px;
+  transform: translateY(40px);
+}
+.card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-info {
+  position: absolute;
+  background-color: inherit;
+  opacity: inherit;
+  border: none;
+  cursor: pointer;
+  font-size: 120%;
+  bottom: 10px;
+  left: 10px;
+  transform: translateY(40px);
+}
+.card-info button {
+  background-color: inherit;
+  border: none;
+  box-sizing: border-box;
+  padding: 0.3em;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+.card-info button:first-child {
+  background-color: #27ce4b;
+  margin-right: 0.4em;
+}
+.card-info button:last-child {
+  background-color: #ff2f2fe7;
+}
+footer {
+  width: 100%;
+  height: 55px;
+  padding: 1em;
+  box-sizing: border-box;
+  background-color: var(--color-azulSecundario);
+  display: flex;
+  justify-content: space-around;
+}
+.add-hero-form {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.514);
+  padding: 1em;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: opacityEffect 0.3s linear;
+}
+.add-hero-form .form-title {
+  width: 100%;
+  border-bottom: 1px solid white;
+  background-color: var(--color-azulSecundario);
+  box-sizing: border-box;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+.add-hero-form .form-title button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+.add-hero-form form {
+  width: 40%;
+  height: 50%;
+  background-color: var(--color-azulPrimario);
+  opacity: 1;
+  border-radius: 0.4em;
+  overflow: hidden;
+}
+.add-hero-form form .input-data {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1em;
+  overflow: auto;
+}
+.add-hero-form form .input-data > span {
+  margin-bottom: 0.3em;
+}
+.add-hero-form form .input-data > button {
+  background-color: #13a733;
+  padding: 0.4em;
+  border-radius: 0.5em;
+  color: white;
+  border: none;
+  width: 94%;
+  cursor: pointer;
+}
+/*edit*/
+.edit-hero-form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.514);
+  padding: 1em;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: opacityEffect 0.3s linear;
+}
+.edit-hero-form .form-title {
+  width: 100%;
+  border-bottom: 1px solid white;
+  background-color: var(--color-azulSecundario);
+  box-sizing: border-box;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+.edit-hero-form .form-title button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+.edit-hero-form form {
+  width: 30%;
+  background-color: var(--color-azulPrimario);
+  border-radius: 0.4em;
+  overflow: hidden;
+}
+.edit-hero-form form .input-data {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1em;
+  overflow: auto;
+}
+.add-hero-form form .input-data > input[type="text"]::placeholder,
+.edit-hero-form form .input-data > input[type="text"]::placeholder {
+  color: rgb(182, 182, 182);
+}
+.add-hero-form form .input-data > input[type="text"],
+.edit-hero-form form .input-data > input[type="text"] {
+  box-sizing: border-box;
+  padding: 0.6em;
+  outline: none;
+  color: black;
+  margin-bottom: 0.8em;
+  background-color: var(--color-azulSecundario);
+  color: white;
+  border: none;
+  border-end-end-radius: 0.3em;
+  border-end-start-radius: 0.3em;
+  border-bottom: 2px solid var(--color-whitePrimario);
+}
+.edit-hero-form form .input-data > span {
+  margin-bottom: 0.3em;
+}
+.edit-hero-form form .input-data > button {
+  background-color: #13a733;
+  padding: 0.4em;
+  border-radius: 0.5em;
+  color: white;
+  border: none;
+  width: 90%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+}
+/*Delete*/
+.delete-hero-form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.514);
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: opacityEffect 0.3s linear;
+}
+.delete-hero-form .form-title {
+  width: 100%;
+  border-bottom: 1px solid white;
+  background-color: var(--color-azulSecundario);
+  box-sizing: border-box;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+.delete-hero-form .form-title button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+.delete-hero-form form {
+  width: 30%;
+  background-color: var(--color-azulPrimario);
+  opacity: 1;
+  border-radius: 0.4em;
+  overflow: hidden;
+}
+.delete-hero-form form .are-sure {
+  box-sizing: border-box;
+  padding: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(206, 209, 0);
+}
+.delete-hero-form form .are-sure h1 {
+  color: black;
+}
+.delete-hero-form form .delete-button {
+  background-color: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  width: 90%;
+  margin-top: 0.8em;
+  margin-left: 0.8em;
+  margin-bottom: 1em;
+}
+@keyframes borderBottomEffect {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+@keyframes cardAnimate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media all and (max-width: 649px) {
+  .add-hero-form {
+    padding: 0;
+  }
+  .add-hero-form form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .edit-hero-form {
+    padding: 0;
+  }
+  .edit-hero-form form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .delete-hero-form {
+    padding: 0;
+  }
+  .delete-hero-form form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes opacityEffect {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
